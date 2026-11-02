@@ -2,11 +2,12 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
 
-    
+
+
 
     "module": "nodenext",
     "target": "esnext",
-    "types": [],
+    "types": ["node"],
 
 
     // Other Outputs
@@ -23,7 +24,7 @@
     // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
