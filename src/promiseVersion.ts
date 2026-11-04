@@ -15,6 +15,10 @@ function getWeather(): Promise<any> {
           })
 
           res.on('end', () => {
+            if (res.statusCode !== 200) {
+                reject(new Error(`Weather API returned status ${res.statusCode}`));
+                return;
+                }
               if (body.length === 0) {
                   reject(new Error("Empty response from weather API"));
                   return;
@@ -42,6 +46,10 @@ function getNews(): Promise<any> {
             })
 
             res.on('end', () => {
+                if (res.statusCode !== 200) {
+                reject(new Error(`News API returned status ${res.statusCode}`));
+                return;
+                }
                 if (body.length === 0) {
                     reject(new Error('Empty response from news API'));
                     return;
@@ -80,8 +88,11 @@ Promise.all([getWeather(), getNews()])
 
 Promise.race([getWeather(), getNews()]).then(
     (result) => {
-        console.log("Weather:", result.current_weather);
-    console.log("Headlines:", result.posts.map((p: any) => p.title));
+        if (result.posts) {
+      console.log("News won the race:", result.posts.map((p: any) => p.title));
+    } else {
+      console.log("Weather won the race:", result.current_weather);
+    }
     }
 ).catch((err) => console.log("Race failed:", err.message));
 

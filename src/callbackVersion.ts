@@ -10,6 +10,14 @@ function getWeather(callback: (error: Error | null, data?: any) => void) {
         })
 
         res.on("end", () => {
+             if (res.statusCode !== 200) {
+                callback(new Error(`Weather API returned status ${res.statusCode}`));
+                return;
+            }
+            if (body.length === 0) {
+                callback(new Error("Empty response from weather API"));
+                return;
+            }
              callback(null, JSON.parse(body));
         })
 
@@ -41,6 +49,14 @@ function getNews(callback: (error: Error | null, data?: any) => void) {
         })
 
         res.on("end", () => {
+            if (res.statusCode !== 200) {
+                callback(new Error(`News API returned status ${res.statusCode}`));
+                return;
+            }
+            if (body.length === 0) {
+                callback(new Error("Empty response from news API"));
+                return;
+            }
             callback(null, JSON.parse(body));
         })
     })

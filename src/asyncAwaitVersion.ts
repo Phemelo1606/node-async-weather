@@ -15,6 +15,10 @@ function getWeather(): Promise<any> {
           })
 
           res.on('end', () => {
+            if (res.statusCode !== 200) {
+                reject(new Error(`Weather API returned status ${res.statusCode}`));
+                return;
+                }
               if (body.length === 0) {
                   reject(new Error("Empty response from weather API"));
                   return;
@@ -42,6 +46,10 @@ function getNews(): Promise<any> {
             })
 
             res.on('end', () => {
+                if (res.statusCode !== 200) {
+                reject(new Error(`News API returned status ${res.statusCode}`));
+                return;
+                }
                 if (body.length === 0) {
                     reject(new Error('Empty response from news API'));
                     return;
