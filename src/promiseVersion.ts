@@ -60,7 +60,7 @@ function getNews(): Promise<any> {
     });
 }
 
-/*let weatherResult: any;
+let weatherResult: any;
 
 getWeather().then((weather) => {
     weatherResult = weather;
@@ -69,14 +69,14 @@ getWeather().then((weather) => {
     console.log("Weather:", weatherResult.current_weather);
     console.log("Headlines:", news.posts.map((p: any) => p.title));
 
-}).catch((err) => console.log("Dashboard failed:", err.message));*/
+}).catch((err) => console.log("Dashboard failed:", err.message));
 
 
-/*Promise.all([getWeather(), getNews()])
+Promise.all([getWeather(), getNews()])
     .then(([weather, news]) => {
         console.log("Weather:", weather.current_weather);
     console.log("Headlines:", news.posts.map((p: any) => p.title));
-    }).catch((err) => console.log("Dashboard failed:", err.message))*/
+    }).catch((err) => console.log("Dashboard failed:", err.message))
 
 Promise.race([getWeather(), getNews()]).then(
     (result) => {
