@@ -1,0 +1,29 @@
+{
+  "name": "async-weather",
+  "version": "1.0.0",
+  "description": "Topic: NodeTS <br />\r Submission Date: 05 November 2026 <br />\r Time: 09:00 AM",
+  "main": "index.js",
+  "scripts": {
+    "callback": "tsx src/callbackVersion.ts",
+    "promise": "tsx src/promiseVersion.ts",
+    "async": "tsx src/asyncAwaitVersion.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phemelo1606/node-async-weather.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Phemelo1606/node-async-weather/issues"
+  },
+  "homepage": "https://github.com/Phemelo1606/node-async-weather#readme",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
